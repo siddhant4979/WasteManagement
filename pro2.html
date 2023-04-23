@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Waste Management Form</title>
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			text-align: center;
+		}
+		label {
+			display: inline-block;
+			margin-bottom: 8px;
+			text-align: left;
+		}
+		input[type=text], input[type=number] {
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid white;
+			border-radius: 4px;
+			background-color: black;
+			color: white;
+			width: 100%;
+		}
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			width: 100%;
+		}
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+        h1 {
+            margin-top: 50px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        form {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            margin: auto;
+        }
+        h2 {
+            margin-top: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        p {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+        }
+        h3 {
+            margin-top: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+        div#companies {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 20px;
+        }
+	</style>
+</head>
+<body>
+	<h1>Waste Management Form</h1>
+	<form onsubmit="submitForm(event)">
+		<label for="building-name">Building Name:</label>
+		<input type="text" id="building-name" name="buildingName" required>
+		<label for="address">Address:</label>
+		<input type="text" id="address" name="address" required>
+		<label for="contact-number">Contact Number:</label>
+		<input type="text" id="contact-number" name="contactNumber" required>
+		<label for="wood-waste">Wood Waste (kg):</label>
+		<input type="number" id="wood-waste" name="woodWaste" required>
+		<label for="plastic-waste">Plastic Waste (kg):</label>
+		<input type="number" id="plastic-waste" name="plasticWaste" required>
+		<label for="glass">Glass (kg):</label>
+		<input type="number" id="glass" name="glass" required>
+		<input type="submit" value="Submit">
+	</form>
+
+	<script>
+		function submitForm(e) {
+			e.preventDefault();
+			var form = e.target;
+			var formData = new FormData(form);
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', 'https://script.google.com/macros/s/AKfycbx-Yz6657z3R1j5l6f-M8nGxy_uQGJi-GTNwOWIW0GBNFj-M8hgWgdxTm6oYCgFLRRm/exec');
+			xhr.send(formData);
+			xhr.onload = function() {
+				alert(xhr.responseText);
+				form.reset();
+			};
+		}
+    </script>
+</script>
+<h2>Taglines for Waste Management:</h2>
+<p>"Reduce, Reuse, Recycle - Waste Less, Save More"</p>
+<p>"Waste Management - Keeping Our Planet Clean and Green"</p>
+<p>"Don't Let Our Waste Go to Waste - Reduce, Reuse, Recycle"</p>
+<br>
+<h3 style="text-align:center;">Here is the link to the building details and their waste production</h3>
+<div style="text-align:center;">
+    <a href="https://docs.google.com/spreadsheets/d/1h4_QUfzJHX-DMnL_E2q__SXzT7QnmdX0Q0C6REJDYuA/edit?usp=sharing" target="_blank">https://docs.google.com/spreadsheets/d/1h4_QUfzJHX-DMnL_E2q__SXzT7QnmdX0Q0C6REJDYuA/edit?usp=sharing</a>
+</div>
+<h2>Waste Management Companies in Pune and Mumbai:</h2>
+<div style="display:flex; justify-content:center; margin-bottom:20px;">
+    <button onclick="showPuneCompanies()">Pune</button>
+    <button onclick="showMumbaiCompanies()">Mumbai</button>
+</div>
+<div id="companies"></div>
+<script>
+    function showPuneCompanies() {
+        var companiesDiv = document.getElementById("companies");
+        companiesDiv.innerHTML = `
+            <h3>Waste Management Companies in Pune:</h3>
+            <ul>
+                <li>CleanTech Waste Management Pvt. Ltd. - This company offers solutions for wood waste management and recycling.</li>
+                <li>Rudra Environmental Solutions - They provide services for recycling plastic waste and managing glass waste.</li>
+                <li>Eco Wise Waste Management Pvt. Ltd. - This company offers solutions for managing all kinds of waste, including wood, plastic, and glass waste.</li>
+            </ul>
+        `;
+    }
+
+    function showMumbaiCompanies() {
+        var companiesDiv = document.getElementById("companies");
+        companiesDiv.innerHTML = `
+            <h3>Waste Management Companies in Mumbai:</h3>
+            <ul>
+                <li>Greenobin - They provide recycling services for plastic and glass waste, as well as other types of waste.</li>
+                <li>Recycle India - This company offers services for the collection, segregation, and recycling of plastic and glass waste.</li>
+                <li>Saahas Zero Waste - They offer solutions for managing all kinds of waste, including wood, plastic, and glass waste.</li>
+            </ul>
+        `;
+    }
+</script>
+<h3>CONTACT US :</h3>
+<p>+91 8070101014</p>
+<p>or</p>
+<p>Mail at siddhantthorat4979@gmail.com</p> 
+<br>   
+</script>
+</body>
+</html>
